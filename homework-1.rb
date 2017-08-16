@@ -50,6 +50,6 @@ puts(join_strings("Yo","Momma"))
 
 # PROBLEM 4
 
-# Calling the method 'puts' present what the code within it evaluates to.
+# What’s the difference between calling the method puts and returning a value from a method?
 
-# Returning a value from a method commands the method to create a value when the code is run, but it doesnt necessarily present it visibly.
+# Calling the method "puts" is used to display Ruby code, while returning a value from a method runs a given method and does not necessarily display the value in the terminal.
