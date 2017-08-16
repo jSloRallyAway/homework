@@ -1,7 +1,5 @@
 # PROBLEM 1
 
-#test edit
-
 # Defining the method "full_name" with 3 arguments: "first_name", "last_name", and "title"
 def full_name(first_name, last_name, title)
   # Setting a variable "name" equal to nil
