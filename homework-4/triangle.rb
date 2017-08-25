@@ -7,6 +7,14 @@ class Triangle
 	end
 
 	def kind
+		if @side_one <= 0 || @side_two <= 0 || @side_three <= 0
+			raise TriangleError 
+		end
+
+		if @side_one + @side_two <= @side_three || @side_two + @side_three <= @side_one || @side_one + @side_three <= @side_two
+			raise TriangleError
+		end
+
 		if @side_one == @side_two && @side_one == @side_three
 			return :equilateral
 		end
@@ -17,56 +25,19 @@ class Triangle
 			return :isosceles
 		end
 
-		# RAISE ATTEMPT 1
-		# raise TriangleError do
-		# 	if @side_one <= 0 || @side_two <= 0 || @side_three <= 0 
-		# 		puts('hello')
-		# 	end
-		# 	if @side_one + @side_two < @side_three || @side_two + @side_three < @side_one || @side_one + @side_three < @side_two
-		# 		puts('hello')
-		# 	end
-		# end
-
-		# # RAISE ATTEMPT 2
-		# if @side_one <= 0 || @side_two <= 0 || @side_three <= 0 
-		# 	raise TriangleError do
-		# 		puts('hello')
-		# 	end
-		# end
-
-		# if @side_one + @side_two < @side_three || @side_two + @side_three < @side_one || @side_one + @side_three < @side_two
-		# 	raise TriangleError do
-		# 		puts('hello')
-		# 	end
-		# end
-
-		# # RAISE ATTEMPT 3
-		
-		# raise TriangleError do
-		# 	@side_one <= 0 || @side_two <= 0 || @side_three <= 0 
-		# 		puts('hello')
-		# end
-		# raise TriangleError do
-		# 	@side_one + @side_two < @side_three || @side_two + @side_three < @side_one || @side_one + @side_three < @side_two
-		# 		puts('hello')
-		# end
-
-		# RAISE ATTEMPT 4
-		if @side_one <= 0 || @side_two <= 0 || @side_three <= 0 
-			assert_raises TriangleError do
-			puts('something')
-			end
-		end
-		
 	end
 
 end
 
-Triangle.new(2,2,2)
-Triangle.new(2,2,3)
-Triangle.new(3,2,3)
-Triangle.new(0,0,0)
-Triangle.new(3,4,-5)
-Triangle.new(2,4,2).kind
-Triangle.new(1,1,3)
-Triangle.new(7,3,2)
+class TriangleError < Exception
+end
+
+
+# Triangle.new(2,2,2)
+# Triangle.new(2,2,3)
+# Triangle.new(3,2,3)
+# Triangle.new(0,0,0)
+# Triangle.new(3,4,-5)
+# Triangle.new(2,4,2).kind
+# Triangle.new(1,1,3)
+# Triangle.new(7,3,2)
